@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SRC=./roll.py
+DST=/usr/local/bin/roll
+
+# move roll.py to the destination at /usr/local/bin
+if ! cp ${SRC} ${DST} > /dev/null 1>&2; then
+    echo "Failed to copy ${SRC} to ${DST}"
+    exit 1
+fi
+
+# set roll as executable
+if ! chmod 755 ${DST} > /dev/null 1>&2; then
+    echo "Failed to set ${DST} as executable"
+    exit 1
+fi
